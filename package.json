@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-360/scripts/packager.js",
     "bundle": "node node_modules/react-360/scripts/bundle.js",
+    "copy-assets": "cp -rv static_assets build/static_assets/",
+    "deploy": "npm run bundle && npm run copy-assets",
     "open": "node -e \"require('xopen')('http://localhost:8081/index.html')\"",
     "devtools": "react-devtools",
     "test": "jest"
