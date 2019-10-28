@@ -68,6 +68,7 @@ export default class ConsumeWiseVR extends React.Component {
   viewOriginals = () => {
     this.alternatives = false;
     this.listToDisplay = this.mainItems;
+    this.checkedOut = false;
     this.refresh();
   }
 
@@ -160,7 +161,7 @@ export default class ConsumeWiseVR extends React.Component {
                  this.alternatives == true &&
                    <VrButton onClick={this.viewOriginals}>
                      <Text>
-                       To Home
+                       {'<-'} BACK
                      </Text>
                    </VrButton>
                }
@@ -202,9 +203,9 @@ export default class ConsumeWiseVR extends React.Component {
              })
            }
          </View>
-         <View>
+         <View style={{borderColor: '#002750', backgroundColor: '#000000', borderWidth: 2, padding: 2, marginTop: 5}}>
            <VrButton onClick={this.changeToCheckout}>
-             <Text style={styles.checkout_txt}>
+             <Text style={{fontSize: 20, color: '#00cc99'}}>
                Checkout: R{this.total}
              </Text>
            </VrButton>
@@ -220,6 +221,11 @@ export default class ConsumeWiseVR extends React.Component {
             <Text style={styles.greeting}>
               Thanks for ordering. Your items are on it's way.
             </Text>
+            <VrButton onClick={this.viewOriginals}>
+              <Text>
+                To Home
+              </Text>
+            </VrButton>
           </View>
         </View>
       );
